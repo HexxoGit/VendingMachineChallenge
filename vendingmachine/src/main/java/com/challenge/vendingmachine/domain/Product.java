@@ -1,25 +1,36 @@
 package com.challenge.vendingmachine.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "products")
+@Getter @Setter @NoArgsConstructor
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false, unique = true)
 	private String productName;
+	
 	private int amountAvailable;
 	private int cost;
+
+	public Product(String productName, int amountAvailable, int cost) {
+		super();
+		this.productName = productName;
+		this.amountAvailable = amountAvailable;
+		this.cost = cost;
+	}
+
 }
