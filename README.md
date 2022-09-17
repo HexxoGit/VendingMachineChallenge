@@ -6,9 +6,9 @@
 
 - Java
 - Springboot
-- postgresql
-- pgadmin4
-- docker
+- Postgresql
+- pgAdmin4
+- Docker
 
 ## Using Docker to simplify development(optional)
 
@@ -17,7 +17,7 @@
 To start a postgresql and pgAdmin container run:
 
 ```
-docker-compose -f pATH/postgresql-pgadmin.yml up -d
+docker-compose -f src/main/resources/postgresql-pgadmin.yml up -d
 ```
 to configure pgAdmin(acessible on http://localhost:5050), login with username admin & password admin. Register a server with any name, set connection host adress to **host.docker.internal**, user admin & password admin.
 
