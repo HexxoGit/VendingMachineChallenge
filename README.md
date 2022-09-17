@@ -6,6 +6,7 @@
 
 - Java
 - Springboot
+- Maven
 - Postgresql
 - pgAdmin4
 - Docker
