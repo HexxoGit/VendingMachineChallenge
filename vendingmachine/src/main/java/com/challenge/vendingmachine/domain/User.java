@@ -32,7 +32,7 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	
-	private int deposit;
+	private int[] deposit;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -51,7 +51,7 @@ public class User {
 	private Collection<Product> products;
 	
 	
-	public User(String username, String password, int deposit) {
+	public User(String username, String password, int[] deposit) {
 		super();
 		this.username = username;
 		this.password = password;

@@ -1,10 +1,10 @@
 package com.challenge.vendingmachine.DTO;
 
-
 import lombok.Data;
 
 @Data
-public class UserResponse {
+public class UserRequest {
 
-	private String username;
+	String username;
+	String password;
 }

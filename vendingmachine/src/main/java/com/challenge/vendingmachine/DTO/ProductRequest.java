@@ -8,5 +8,4 @@ public class ProductRequest {
 	private String productName;
 	private int amount;
 	private int cost;
-	private String username;
 }
