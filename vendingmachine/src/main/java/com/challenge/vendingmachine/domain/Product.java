@@ -21,14 +21,14 @@ public class Product {
 	private Long id;
 	
 	@Column(nullable = false, unique = true)
-	private String productName;
+	private String name;
 	
 	private int amountAvailable;
 	private int cost;
 
 	public Product(String productName, int amountAvailable, int cost) {
 		super();
-		this.productName = productName;
+		this.name = productName;
 		this.amountAvailable = amountAvailable;
 		this.cost = cost;
 	}

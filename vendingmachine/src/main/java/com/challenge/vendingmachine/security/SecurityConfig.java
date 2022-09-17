@@ -42,10 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.authorizeRequests().antMatchers("/api/user").permitAll();
-		http.authorizeRequests().antMatchers("/api/login/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users").hasAnyAuthority("seller");
-		http.authorizeRequests().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/api/user").permitAll()
+			.and().authorizeRequests().antMatchers("/api/users").permitAll()
+			.and().authorizeRequests().antMatchers("/api/product/add").permitAll()
+			.and().authorizeRequests().antMatchers("/api/product").permitAll()
+			.and().authorizeRequests().antMatchers("/api/products").permitAll()
+			.and().authorizeRequests().antMatchers("/api/user/reset").permitAll()
+			.and().authorizeRequests().antMatchers("/api/user/addRole").permitAll()
+			.and().authorizeRequests().antMatchers("/api/login/**").permitAll()
+			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/deposit").permitAll()
+			//.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/reset").hasAnyAuthority("SELLER")
+			//.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/users").hasAnyAuthority("BUYER")
+			.and().authorizeRequests().anyRequest().authenticated();
 		http.addFilter(customAuthenticationFilter);
 		http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
