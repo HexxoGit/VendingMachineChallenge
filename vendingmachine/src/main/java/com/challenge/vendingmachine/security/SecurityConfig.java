@@ -56,9 +56,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.and().authorizeRequests().antMatchers("/api/user/addRole").permitAll()
 			.and().authorizeRequests().antMatchers("/api/login/**").permitAll()
 			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/deposit").permitAll()
-			//.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/reset").hasAnyAuthority("SELLER")
-			//.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/users").hasAnyAuthority("BUYER")
 			.and().authorizeRequests().anyRequest().authenticated();
+		
+		/**
+		http.csrf().disable();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		//General endpoint to get all user info (testing purposes)
+		http.authorizeRequests().antMatchers("/api/users").permitAll()
+			.and().authorizeRequests().antMatchers("/api/login/**").permitAll()
+			.and().authorizeRequests().antMatchers("/api/user").permitAll()
+			.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/product").permitAll()
+			.and().authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/delete")
+				.hasAnyAuthority("SELLER")
+			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/update/**")
+				.hasAnyAuthority("SELLER")
+			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/deposit")
+				.hasAnyAuthority("BUYER")
+			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/product/buy")
+				.hasAnyAuthority("BUYER")
+			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/reset")
+				.hasAnyAuthority("BUYER")
+			.and().authorizeRequests().anyRequest().authenticated();
+		**/
+			
 		http.addFilter(customAuthenticationFilter);
 		http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}

@@ -12,6 +12,11 @@ import com.challenge.vendingmachine.domain.User;
 import com.challenge.vendingmachine.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -29,6 +34,6 @@ public class UserResourceIT {
 	void registerUser() throws Exception {
 		UserRequest testUser = new UserRequest("testuser1", "password");
 		
-		mockMvc.perform(null);
+		//mockMvc.perform(post("/api/user", 42)).contentType("application/json").para
 	}
 }
