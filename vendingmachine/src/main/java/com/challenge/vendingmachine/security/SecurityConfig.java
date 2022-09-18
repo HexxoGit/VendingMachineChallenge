@@ -63,10 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		//General endpoint to get all user info (testing purposes)
 		http.authorizeRequests().antMatchers("/api/user").permitAll()
+			.and().authorizeRequests().antMatchers("/v3/api-docs/").permitAll()
 			.and().authorizeRequests().antMatchers("/api/user/addRole").permitAll()
 			.and().authorizeRequests().antMatchers("/api/login").permitAll()
+			//General endpoint to get all user info (testing purposes)
 			.and().authorizeRequests().antMatchers("/api/users").permitAll()
 			
 			.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/product").permitAll()

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.challenge.vendingmachine.DTO.BuyerResponse;
+import com.challenge.vendingmachine.DTO.ProductRequest;
 import com.challenge.vendingmachine.DTO.ProductResponse;
 import com.challenge.vendingmachine.domain.Product;
 import com.challenge.vendingmachine.domain.User;
@@ -34,11 +35,12 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
-	public ProductResponse saveProduct(String username, Product product) {
+	public ProductResponse saveProduct(String username, ProductRequest request) {
 		User user = userRepo.findByUsername(username);
+		Product product = prodRepo.findByName(request.getProductName());
 		
-		if(prodRepo.findByName(product.getName()) == null) {
-			Product prod = prodRepo.save(product);
+		if(product == null) {
+			Product prod = prodRepo.save(ProductMapper.toEntity(request));
 			user.getProducts().add(prod);
 			return ProductMapper.toResponse(prod);
 		}

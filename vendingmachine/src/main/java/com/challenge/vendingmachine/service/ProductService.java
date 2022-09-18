@@ -3,12 +3,13 @@ package com.challenge.vendingmachine.service;
 import java.util.List;
 
 import com.challenge.vendingmachine.DTO.BuyerResponse;
+import com.challenge.vendingmachine.DTO.ProductRequest;
 import com.challenge.vendingmachine.DTO.ProductResponse;
 import com.challenge.vendingmachine.domain.Product;
 
 public interface ProductService {
 
-	ProductResponse saveProduct(String username, Product product);
+	ProductResponse saveProduct(String username, ProductRequest product);
 	ProductResponse getProduct(String productName);
 	List<Product> getAllProducts();
 	

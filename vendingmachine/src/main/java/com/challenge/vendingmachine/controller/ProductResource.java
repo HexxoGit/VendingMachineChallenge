@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.challenge.vendingmachine.DTO.BuyerResponse;
+import com.challenge.vendingmachine.DTO.ProductRequest;
 import com.challenge.vendingmachine.DTO.ProductResponse;
 import com.challenge.vendingmachine.domain.Product;
 import com.challenge.vendingmachine.service.ProductService;
@@ -48,7 +49,7 @@ public class ProductResource {
 	}
 	
 	@PostMapping("/product/add")
-	public ResponseEntity<ProductResponse> saveProduct(Authentication authentication, @RequestBody Product request) {
+	public ResponseEntity<ProductResponse> saveProduct(Authentication authentication, @RequestBody ProductRequest request) {
 		URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath()
 						.path("/api/product/add").toUriString());
 		ProductResponse response = prodService.saveProduct(authentication.getName(), request);

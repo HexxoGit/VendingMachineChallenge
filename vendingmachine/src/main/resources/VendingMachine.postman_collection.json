@@ -1,0 +1,951 @@
+{
+	"info": {
+		"_postman_id": "b5a9e600-d596-40c6-b7e7-9fdba88e8ef3",
+		"name": "OpenAPI definition",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "save VM User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"deserunt officia culpa\",\n  \"password\": \"Excepteur mag\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"deserunt officia culpa\",\n  \"password\": \"Excepteur mag\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "reset Coin Amount",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/reset",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"reset"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/reset",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"reset"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "deposit Coin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/deposit?coin=52455221",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"deposit"
+									],
+									"query": [
+										{
+											"key": "coin",
+											"value": "52455221",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/deposit?coin=52455221",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"deposit"
+											],
+											"query": [
+												{
+													"key": "coin",
+													"value": "52455221"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "add Role To User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/addRole?username=in consectetur ut laborum&role=in consectetur ut laborum",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"addRole"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "in consectetur ut laborum",
+											"description": "(Required) "
+										},
+										{
+											"key": "role",
+											"value": "in consectetur ut laborum",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/addRole?username=in consectetur ut laborum&role=in consectetur ut laborum",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"addRole"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "in consectetur ut laborum"
+												},
+												{
+													"key": "role",
+													"value": "in consectetur ut laborum"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/delete?username=in consectetur ut laborum",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "in consectetur ut laborum",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/delete?username=in consectetur ut laborum",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "in consectetur ut laborum"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "update Product Cost",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/product/update/cost?productName=in consectetur ut laborum&cost=52455221",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product",
+												"update",
+												"cost"
+											],
+											"query": [
+												{
+													"key": "productName",
+													"value": "in consectetur ut laborum",
+													"description": "(Required) "
+												},
+												{
+													"key": "cost",
+													"value": "52455221",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/product/update/cost?productName=in consectetur ut laborum&cost=52455221",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"product",
+														"update",
+														"cost"
+													],
+													"query": [
+														{
+															"key": "productName",
+															"value": "in consectetur ut laborum"
+														},
+														{
+															"key": "cost",
+															"value": "52455221"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "update Product Amount",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/product/update/amount?productName=in consectetur ut laborum&amount=52455221",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product",
+												"update",
+												"amount"
+											],
+											"query": [
+												{
+													"key": "productName",
+													"value": "in consectetur ut laborum",
+													"description": "(Required) "
+												},
+												{
+													"key": "amount",
+													"value": "52455221",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/product/update/amount?productName=in consectetur ut laborum&amount=52455221",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"product",
+														"update",
+														"amount"
+													],
+													"query": [
+														{
+															"key": "productName",
+															"value": "in consectetur ut laborum"
+														},
+														{
+															"key": "amount",
+															"value": "52455221"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get Product",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/product?productName=in consectetur ut laborum",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"product"
+									],
+									"query": [
+										{
+											"key": "productName",
+											"value": "in consectetur ut laborum",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/product?productName=in consectetur ut laborum",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product"
+											],
+											"query": [
+												{
+													"key": "productName",
+													"value": "in consectetur ut laborum"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "buy Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/product/buy?productId=52455221&amount=52455221",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"product",
+										"buy"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "52455221",
+											"description": "(Required) "
+										},
+										{
+											"key": "amount",
+											"value": "52455221",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/product/buy?productId=52455221&amount=52455221",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product",
+												"buy"
+											],
+											"query": [
+												{
+													"key": "productId",
+													"value": "52455221"
+												},
+												{
+													"key": "amount",
+													"value": "52455221"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "save Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"productName\": \"amet minim nostrud\",\n  \"amount\": -50012197,\n  \"cost\": -10548995\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/product/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"product",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productName\": \"amet minim nostrud\",\n  \"amount\": -50012197,\n  \"cost\": -10548995\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/product/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/product/delete?productName=in consectetur ut laborum",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"product",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "productName",
+											"value": "in consectetur ut laborum",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/product/delete?productName=in consectetur ut laborum",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"product",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "productName",
+													"value": "in consectetur ut laborum"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get VM User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "user",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
