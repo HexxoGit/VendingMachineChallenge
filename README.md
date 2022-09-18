@@ -14,7 +14,7 @@ Used stack
 
 ## How to operate the vending machine
 
-Afrer registering a user("/api/user"), before logging in, it is necessary to add 1 or more roles to the corresponding user, then log in trough ("/api/login"). Note: if role changes, user needs to log in again. 
+Afrer registering a user("/api/user"), before logging in, it is necessary to add 1 or more roles to the corresponding user, then log in trough ("/api/login"). Note: if role changes, user needs to login again. 
 Since most of the endpoints require the authentication username, that comes from JWT acess token(refresh token not yet functional), it is necessary to passe the token in the header with 
 - **KEY**: Authorization 
 - **Value**: Bearer {TOKEN}
