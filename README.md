@@ -1,6 +1,8 @@
 # VendingMachineChallenge
 
 **UNDER UPDATE**
+TODO: IntegrationTest
+TODO: Challange Bonus - /logout/all
 
 ## Project
 
