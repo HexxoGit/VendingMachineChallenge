@@ -86,7 +86,7 @@ public class ProductServiceImpl implements ProductService{
 		Product prod = prodRepo.findByName(productName);
 		
 		if(prod != null && userRepo.findByUsername(username).getProducts().contains(prod)) {
-			prod.setCost(cost);;
+			prod.setCost(cost);
 			prodRepo.save(prod);
 			return ProductMapper.toResponse(prod);
 		}
