@@ -26,29 +26,35 @@ public class Utils {
                 .toArray();
 	}
 	
+	/**
+	 * Split the totalChange into available coins
+	 * 
+	 * @param value
+	 * @return array with the possible coins change
+	 */
 	public static int[] coinConvertor(int value) {
 		int change[] = new int[0];
 		
 		while(value > 0) {
-			if(value > 100) {
-				change = addX(change.length, change, 100);
-				value -= 100;
+			if(value > allowedCoins[4]) {
+				change = addX(change.length, change, allowedCoins[4]);
+				value -= allowedCoins[4];
 			}
-			if(value > 50) {
-				change = addX(change.length, change, 50);
-				value -= 50;
+			if(value > allowedCoins[3]) {
+				change = addX(change.length, change, allowedCoins[3]);
+				value -= allowedCoins[3];
 			}
-			if(value > 20) {
-				change = addX(change.length, change, 20);
-				value -= 20;
+			if(value > allowedCoins[2]) {
+				change = addX(change.length, change, allowedCoins[2]);
+				value -= allowedCoins[2];
 			}
-			if(value > 10) {
-				change = addX(change.length, change, 10);
-				value -= 10;
+			if(value > allowedCoins[1]) {
+				change = addX(change.length, change, allowedCoins[1]);
+				value -= allowedCoins[1];
 			}
-			if(value >= 5) {
-				change = addX(change.length, change, 5);
-				value -= 5;
+			if(value >= allowedCoins[0]) {
+				change = addX(change.length, change, allowedCoins[0]);
+				value -= allowedCoins[0];
 			}
 		}
 		return change;

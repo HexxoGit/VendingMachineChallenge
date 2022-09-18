@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				new CustomAuthenticationFilter(authenticationManagerBean());
 		customAuthenticationFilter.setFilterProcessesUrl("/api/login");
 		
-		http.csrf().disable();
+		/*http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.authorizeRequests().antMatchers("/api/user").permitAll()
 			.and().authorizeRequests().antMatchers("/v3/api-docs/").permitAll()
@@ -56,15 +56,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.and().authorizeRequests().antMatchers("/api/user/addRole").permitAll()
 			.and().authorizeRequests().antMatchers("/api/login/**").permitAll()
 			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/deposit").permitAll()
-			.and().authorizeRequests().anyRequest().authenticated();
+			.and().authorizeRequests().anyRequest().authenticated();*/
 		
-		/**
+		
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		//General endpoint to get all user info (testing purposes)
-		http.authorizeRequests().antMatchers("/api/users").permitAll()
+		http.authorizeRequests().antMatchers("/api/user").permitAll()
+			.and().authorizeRequests().antMatchers("/api/user/addRole").permitAll()
 			.and().authorizeRequests().antMatchers("/api/login/**").permitAll()
-			.and().authorizeRequests().antMatchers("/api/user").permitAll()
+			.and().authorizeRequests().antMatchers("/api/users").permitAll()
+			.and().authorizeRequests().antMatchers("/api/product/add").permitAll()
 			.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/product").permitAll()
 			.and().authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/product/delete")
 				.hasAnyAuthority("SELLER")
@@ -77,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/reset")
 				.hasAnyAuthority("BUYER")
 			.and().authorizeRequests().anyRequest().authenticated();
-		**/
+		
 			
 		http.addFilter(customAuthenticationFilter);
 		http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

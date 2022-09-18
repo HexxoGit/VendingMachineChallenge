@@ -37,20 +37,24 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter{
 			filterChain.doFilter(request, response);
 		} else {
 			String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+			log.info("authHEADER: {}", authorizationHeader);
 			if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 				try {
-					String token = authorizationHeader.substring("Bearer ".length());
+					String token = authorizationHeader.substring(7);
+					log.info("token without Bearer {}", token);
+					//TODO: algorith should be in a separated file stored somewhere secure
 					Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
 					JWTVerifier verifier = JWT.require(algorithm).build();
 					DecodedJWT decodedJWT = verifier.verify(token);
 					String username = decodedJWT.getSubject();
 					String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
+					log.info("Authorization username {}", username);
+					log.info("Authorization roles {}", (Object)roles);
 					Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 					java.util.Arrays.stream(roles).forEach(role -> {
 						authorities.add(new SimpleGrantedAuthority(role));
 					});
-					log.info("Authorization username {}", username);
-					log.info("Authorization roles {}", authorities.toString());
+					log.info("authorities roles {}", authorities.toString());
 					UsernamePasswordAuthenticationToken authenticationToken =
 							new UsernamePasswordAuthenticationToken(username, null, authorities);
 					SecurityContextHolder.getContext().setAuthentication(authenticationToken);

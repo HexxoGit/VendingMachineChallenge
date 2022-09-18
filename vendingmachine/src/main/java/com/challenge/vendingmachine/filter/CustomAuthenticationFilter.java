@@ -48,14 +48,11 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 		return authenticationManager.authenticate(authenticationToken);
 	}
 	
-	/*Aqui é onde vamos buscar a info do user que acabamos de autenticar */
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authentication) throws IOException, ServletException { 
 		User user = (User)authentication.getPrincipal();
-		//usado para assinar o token
-		// ma pratica usar aqui a string melhor era estar em algum ficheiro algures num lugar seguro
-		// desencriptalo e encriptalo aqui
+		//TODO: algorith should be in a separated file stored somewhere secure
 		Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
 		String acess_token = JWT.create()
 					.withSubject(user.getUsername())

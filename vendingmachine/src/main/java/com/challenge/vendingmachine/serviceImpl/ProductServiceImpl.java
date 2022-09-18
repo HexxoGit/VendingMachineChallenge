@@ -109,9 +109,12 @@ public class ProductServiceImpl implements ProductService{
 				log.info("productTotal: {}", productTotal);
 				log.info("checkTotal: {}", checkTotal);
 				
+				//not enough coins
 				if(checkTotal < 0) {
 					return null;
-				}else if(checkTotal > 0) {
+				}
+				//More then enough coins
+				else if(checkTotal > 0) {
 					int[] userCoins = Utils.sortDesc(user.getDeposit());
 					log.info("Descending Order userCoins {}", (Object)userCoins);
 					log.info("userCoins length {}", userCoins.length);
@@ -145,7 +148,9 @@ public class ProductServiceImpl implements ProductService{
 					userRepo.save(user);
 					
 					return new BuyerResponse(prod.get().getName(), productTotal, changeArr);
-				} else {
+				} 
+				//Available coins minus prodAmount is exactly 0
+				else {
 					prod.get().setAmountAvailable(amountAvailable-amount);
 					prodRepo.save(prod.get());
 

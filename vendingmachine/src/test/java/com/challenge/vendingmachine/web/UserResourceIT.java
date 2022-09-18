@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.challenge.vendingmachine.DTO.UserRequest;
 import com.challenge.vendingmachine.domain.User;
 import com.challenge.vendingmachine.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,8 +30,8 @@ public class UserResourceIT {
 	@Autowired
 	private UserRepository userRepository;
 	
-	void registerUser() throws Exception {
-		UserRequest testUser = new UserRequest("testuser1", "password");
+	void resetUserCoins() throws Exception {
+		User testUser = new User("testuser1", "password", new int[] {5,10});
 		
 		//mockMvc.perform(post("/api/user", 42)).contentType("application/json").para
 	}
