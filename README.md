@@ -14,7 +14,11 @@ Used stack
 
 ## How to operate the vending machine
 
-Afrer registering a user("/api/user"), it is necessary to log in trough ("/api/login") since most of all endpoints require authentication username that comes from JWT token.
+Afrer registering a user("/api/user"), before logging in, it is necessary to add 1 or more roles to the corresponding user, then log in trough ("/api/login"). Note: if role changes, user needs to log in again. 
+Since most of the endpoints require the authentication username, that comes from JWT acess token(refresh token not yet functional), it is necessary to passe the token in the header with 
+- **KEY** Authorization 
+- **Value** Bearer {TOKEN}
+
 By default, the roles BUYER and SELLER are registered on the database.
 
 ### OpenAPI
@@ -28,6 +32,6 @@ Under src/main/resources is a API doc that can be imported into postman or anoth
 To start a postgresql and pgAdmin container run:
 
 ```
-docker-compose -f src/main/resources/postgresql-pgadmin.yml up -d
+docker-compose -f src/main/resources/postgres-pgadmin.yml up -d
 ```
 to configure pgAdmin(acessible on http://localhost:5050), login with username admin & password admin. Register a server with any name, set connection host adress to **host.docker.internal**, user admin & password admin.

@@ -75,6 +75,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		User user = userRepo.findByUsername(username);
 		Role role = roleRepo.findByName(roleName.toUpperCase());
 		
+		if(user == null)
+			throw new UsernameNotFoundException("Username not found");
 		if(role == null)
 			throw new RuntimeException("Role not found");
 		
@@ -104,4 +106,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userRepo.save(user);
 	}
 
+	@Override
+	public void deleteUser(String username) {
+		User userToDelete = userRepo.findByUsername(username);
+		
+		if(userToDelete != null)
+			userRepo.delete(userToDelete);
+	}
 }

@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,12 +47,12 @@ public class UserResource {
 	}
 	
 	@PostMapping("/user/addRole")
-	public ResponseEntity<?> addRoleToUser(Authentication authentication, @RequestParam String role) {
-		userService.addRoleToUser(authentication.getName(), role);
+	public ResponseEntity<?> addRoleToUser(@RequestParam String username, @RequestParam String role) {
+		userService.addRoleToUser(username, role);
 		return ResponseEntity.ok().build();
 	}
 	
-	@PostMapping("/user/reset")
+	@PutMapping("/user/reset")
 	public ResponseEntity<?> resetCoinAmount(Authentication authentication) {
 		userService.resetUserAmount(authentication.getName());
 		return ResponseEntity.ok().build();
@@ -59,6 +61,12 @@ public class UserResource {
 	@PostMapping("/user/deposit")
 	public ResponseEntity<?> depositCoin(Authentication authentication, @RequestParam int coin) {
 		userService.addCoinToUser(authentication.getName(), coin);
+		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/user/delete")
+	public ResponseEntity<?> deleteUser(@RequestParam String username) {
+		userService.deleteUser(username);
 		return ResponseEntity.ok().build();
 	}
 }

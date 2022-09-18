@@ -91,7 +91,7 @@ public class ProductResource {
 			return ResponseEntity.badRequest().build();
 	}
 	
-	@PutMapping("/product/buy")
+	@PostMapping("/product/buy")
 	public ResponseEntity<BuyerResponse> buyProduct(Authentication authentication, 
 				@RequestParam int productId, @RequestParam int amount) {
 		URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath()

@@ -11,6 +11,7 @@ public interface UserService {
 	List<User> getUsers();
 	
 	UserResponse saveUser(UserRequest user);
+	void deleteUser(String username);
 	
 	void addRoleToUser(String username, String roleName);
 	void addCoinToUser(String username, int coin);
